@@ -1,0 +1,36 @@
+﻿@model IEnumerable<CodeFirstVenueBooking.Models.CustomerEventDetails>
+
+<h2> Customer Event Details </h2>
+<table class="table-bordered">
+    <thead>
+        <tr>
+            <th>EventName</th>
+            <th> People</th>
+            <th>EventDate</th>
+            <th>Details</th>
+            <th>UserName</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var CustomerEventDetails in Model)
+        {
+            <tr>
+                <td>@CustomerEventDetails.EventName</td>
+                <td>@CustomerEventDetails.People</td>
+                <td>@CustomerEventDetails.EventDate</td>
+                <td>@CustomerEventDetails.Details</td>
+                <td>@CustomerEventDetails.UserName</td>
+                
+                <td>
+                    <a asp-action="Edit" asp-controller="CustomerEventDetails" asp-route-name ="@CustomerEventDetails.EventName">Edit</a>
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-controller="CustomerEventDetails" asp-route-name="@CustomerEventDetails.EventName">Delete</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+
+</table>

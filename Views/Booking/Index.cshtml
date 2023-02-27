@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CodeFirstVenueBooking.Models.Booking>
+
+<h2> Booking List</h2>
+<table class="table-bordered">
+    <thead>
+        <tr>
+            <th>Bno</th>
+            <th>BDate</th>
+            <th>EventName</th>
+            <th>UserName</th>
+            <th>Price</th>
+            <th>SelectType</th>
+            <th>SelectName</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Booking in Model)
+        {
+            <tr>
+                <td>@Booking.Bno</td>
+                <td>@Booking.BDate</td>
+                <td>@Booking.EventName</td>
+                <td>@Booking.UserName</td>
+                <td>@Booking.Price</td>
+                <td>@Booking.SelectType</td>
+                <td>@Booking.SelectName</td>
+                <td>
+                    <a asp-action="Edit" asp-controller="Booking" asp-route-id="@Booking.Bno">Edit</a>
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-controller="Booking" asp-route-id="@Booking.Bno">Delete</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+
+</table>
